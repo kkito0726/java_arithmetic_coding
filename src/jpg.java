@@ -83,22 +83,13 @@ public class jpg {
 
         // 一文字づつデコードする
         String ans = "";
+        String[] letters = {"a", "b", "c", "d"};
         while (number > 0.) {
-            if (front.get("a") <= number && number < back.get("a")) {
-                ans += "a";
-                number = (number - front.get("a")) / lineWidth.get("a");
-            }
-            if (front.get("b") <= number && number < back.get("b")) {
-                ans += "b";
-                number = (number - front.get("b")) / lineWidth.get("b");
-            }
-            if (front.get("c") <= number && number < back.get("c")) {
-                ans += "c";
-                number = (number - front.get("c")) / lineWidth.get("c");
-            }
-            if (front.get("d") <= number && number < back.get("d")) {
-                ans += "d";
-                number = (number - front.get("d")) / lineWidth.get("d");
+            for (String str: letters) {
+                if (front.get(str) <= number && number < back.get(str)) {
+                    ans += str;
+                    number = (number - front.get(str)) / lineWidth.get(str);
+                }
             }
         }
         return ans;
